@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+   {% if session.name %}
+      <h1>Bienvenue, {{ session.name }} !</h1>
+      <strong> Vous êtes enregistré(e) en tant que :  </strong> {{ session.name }}. <br>
+      <strong> Votre ID de session est  :  </strong> {{ session_id }}. <br><br>
+      <form action="/logout" method="GET">
+         <button type="submit">Se déconnecter</button>
+      </form>
+
+   {% else %}
+      <strong>Vous n'êtes pas enregistré(e). </strong><a href="/login">Login</a>.
+   {% endif %}
+{% endblock %}
